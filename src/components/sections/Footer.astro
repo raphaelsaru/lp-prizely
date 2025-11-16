@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+import logoPrizely from '../../assets/logo-prizely.png';
+---
+
+<footer class="bg-slate-900 text-white">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <div class="flex items-center mb-4 md:mb-0">
+        <Image src={logoPrizely} alt="Prizely" class="h-8 w-auto brightness-0 invert" />
+      </div>
+      
+      <p class="text-slate-400 text-sm">
+        Prizely - Todos os direitos reservados.
+      </p>
+
+      <button 
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+        class="mt-4 md:mt-0 text-slate-400 hover:text-white transition-colors text-sm flex items-center space-x-1"
+      >
+        <span>Voltar ao topo</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</footer>
+

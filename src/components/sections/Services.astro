@@ -1,0 +1,93 @@
+---
+import Card from '../ui/Card.astro';
+import Button from '../ui/Button.astro';
+import { Target, Palette, BarChart3, MessageCircle, TrendingUp, Handshake } from 'lucide-react';
+
+const services = [
+  {
+    icon: Target,
+    title: 'Gestão de Tráfego Pago',
+    description: 'Campanhas estratégicas no Meta Ads, Google Ads e LinkedIn Ads com foco em ROI positivo desde o primeiro dia.',
+    features: ['Meta Ads', 'Google Ads', 'LinkedIn Ads']
+  },
+  {
+    icon: Palette,
+    title: 'Criativos que Convertem',
+    description: 'Criação ilimitada de anúncios, vídeos e artes otimizadas para gerar cliques e conversões reais.',
+    features: ['Design de Anúncios', 'Edição de Vídeos', 'Copy Persuasivo']
+  },
+  {
+    icon: BarChart3,
+    title: 'Dashboard em Tempo Real',
+    description: 'Acesso 24/7 a dashboard completo com todas as métricas importantes: investimento, leads, vendas e ROI.',
+    features: ['Métricas em Tempo Real', 'Relatórios Automáticos', 'Transparência Total']
+  },
+  {
+    icon: MessageCircle,
+    title: 'Comunicação Constante',
+    description: 'Grupo exclusivo no WhatsApp, reuniões semanais e resumos diários para você estar sempre por dentro.',
+    features: ['WhatsApp Direto', 'Reuniões Semanais', 'Suporte Ágil']
+  },
+  {
+    icon: TrendingUp,
+    title: 'Otimização Contínua',
+    description: 'Testes A/B constantes, análise de dados e ajustes estratégicos para melhorar resultados semana após semana.',
+    features: ['Testes A/B', 'Análise de Dados', 'Ajustes Semanais']
+  },
+  {
+    icon: Handshake,
+    title: 'Consultoria Estratégica',
+    description: 'Muito além de tráfego: ajudamos a otimizar seu funil de vendas, CRM, processos e posicionamento digital.',
+    features: ['Análise de Funil', 'CRM Setup', 'Posicionamento']
+  }
+];
+---
+
+<section id="servicos" class="section bg-slate-50">
+  <div class="container">
+    <!-- Header -->
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-6">
+        Serviços que <span class="gradient-text">impulsionam seu crescimento</span>
+      </h2>
+      <p class="text-xl text-slate-600">
+        Tudo que você precisa para dominar o marketing digital e escalar suas vendas de forma previsível.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      {services.map((service) => (
+        <Card variant="hover" class="group">
+          <!-- Icon -->
+          <div class="text-primary-600 mb-6 transform group-hover:scale-110 transition-transform">
+            <service.icon className="w-16 h-16" />
+          </div>
+
+          <!-- Title -->
+          <h3 class="text-2xl font-heading font-bold text-slate-900 mb-4">
+            {service.title}
+          </h3>
+
+          <!-- Description -->
+          <p class="text-slate-600 mb-6 leading-relaxed">
+            {service.description}
+          </p>
+
+          <!-- Features -->
+          <div class="space-y-2">
+            {service.features.map((feature) => (
+              <div class="flex items-center text-sm text-slate-500">
+                <svg class="w-4 h-4 mr-2 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                {feature}
+              </div>
+            ))}
+          </div>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>
+

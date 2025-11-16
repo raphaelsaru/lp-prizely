@@ -1,0 +1,93 @@
+---
+import Button from '../ui/Button.astro';
+import Badge from '../ui/Badge.astro';
+import { Sparkles, TrendingUp, CheckCircle } from 'lucide-react';
+---
+
+<section id="inicio" class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-primary-900 to-slate-900 pt-20">
+  <!-- Background Animation -->
+  <div class="absolute inset-0 opacity-30">
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500 rounded-full mix-blend-multiply filter blur-3xl animate-float"></div>
+    <div class="absolute top-1/3 right-1/4 w-96 h-96 bg-secondary-500 rounded-full mix-blend-multiply filter blur-3xl animate-float" style="animation-delay: 2s;"></div>
+    <div class="absolute bottom-1/4 left-1/3 w-96 h-96 bg-accent-500 rounded-full mix-blend-multiply filter blur-3xl animate-float" style="animation-delay: 4s;"></div>
+  </div>
+
+  <div class="container relative z-10">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Content -->
+      <div class="text-white">
+        <!-- Badge -->
+        <div class="mb-6 animate-slide-down">
+          <Badge variant="primary" size="md" class="!bg-white/10 !text-white backdrop-blur-sm">
+            <Sparkles className="w-4 h-4 inline mr-1" />
+            Agência de Performance Digital
+          </Badge>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 leading-tight animate-slide-up">
+          Pare de perder <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-secondary-400 to-accent-500">tempo e dinheiro</span> com marketing que não funciona
+        </h1>
+
+        <!-- Sub-headline -->
+        <p class="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed animate-slide-up" style="animation-delay: 0.1s;">
+          Cansou de agências que <strong>prometem muito e não entregam nada?</strong> 
+          Na Prizely, cada campanha é planejada para você <strong class="text-white">conquistar resultados reais</strong>.
+        </p>
+
+        <!-- Trust Indicators -->
+        <div class="flex flex-wrap gap-6 mb-10 text-slate-300 animate-slide-up" style="animation-delay: 0.2s;">
+          <div class="flex items-center space-x-2">
+            <CheckCircle className="w-5 h-5 text-accent-400" />
+            <span>Estratégias Validadas</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <CheckCircle className="w-5 h-5 text-accent-400" />
+            <span>ROI Mensurável</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <CheckCircle className="w-5 h-5 text-accent-400" />
+            <span>Transparência Total</span>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="flex flex-col sm:flex-row gap-4 animate-scale-in" style="animation-delay: 0.3s;">
+          <Button href="#contato" size="lg" class="shadow-2xl hover:scale-105 transition-transform">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+            Quero Crescer com a Prizely
+          </Button>
+        </div>
+      </div>
+
+      <!-- Visual Element -->
+      <div class="hidden lg:block relative animate-fade-in" style="animation-delay: 0.2s;">
+        <div class="relative w-full h-[600px] flex items-center justify-center">
+          <!-- 3D-like Element -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-80 h-80 bg-gradient-to-br from-primary-500 via-secondary-500 to-accent-500 rounded-full opacity-20 blur-3xl animate-float"></div>
+          </div>
+          <div class="relative z-10 w-96 h-96 rounded-3xl bg-gradient-to-br from-primary-500/20 to-secondary-500/20 backdrop-blur-xl border border-white/20 shadow-2xl transform rotate-6 hover:rotate-0 transition-transform duration-500">
+            <div class="absolute inset-4 rounded-2xl bg-white/5 backdrop-blur-sm flex items-center justify-center">
+              <div class="text-center p-8">
+                <TrendingUp className="w-16 h-16 text-white mx-auto mb-4" />
+                <p class="text-white text-lg font-semibold">Crescimento Mensurável</p>
+                <p class="text-slate-300 text-sm mt-2">Resultados que você pode acompanhar</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+</section>
+

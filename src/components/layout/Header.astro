@@ -1,0 +1,102 @@
+---
+import { Image } from 'astro:assets';
+import Button from '../ui/Button.astro';
+import logoPrizely from '../../assets/logo-prizely.png';
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+  <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center">
+        <Image src={logoPrizely} alt="Prizely" class="h-10 w-auto" loading="eager" />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#inicio" class="text-slate-700 hover:text-primary-700 font-medium transition-colors">
+          Início
+        </a>
+        <a href="#servicos" class="text-slate-700 hover:text-primary-700 font-medium transition-colors">
+          Serviços
+        </a>
+        <a href="#sobre" class="text-slate-700 hover:text-primary-700 font-medium transition-colors">
+          Sobre
+        </a>
+      </div>
+
+      <!-- CTA Button -->
+      <div class="hidden md:block">
+        <Button href="#contato" size="md">
+          Quero crescer com a Prizely
+        </Button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button 
+        id="mobile-menu-button"
+        class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors"
+        aria-label="Abrir menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden pb-6">
+      <div class="flex flex-col space-y-4">
+        <a href="#inicio" class="text-slate-700 hover:text-primary-700 font-medium transition-colors py-2">
+          Início
+        </a>
+        <a href="#servicos" class="text-slate-700 hover:text-primary-700 font-medium transition-colors py-2">
+          Serviços
+        </a>
+        <a href="#sobre" class="text-slate-700 hover:text-primary-700 font-medium transition-colors py-2">
+          Sobre
+        </a>
+        <Button href="#contato" size="md" fullWidth>
+          Quero crescer com a Prize
+        </Button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const button = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+
+  button?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+
+  // Close mobile menu when clicking on links
+  const mobileLinks = menu?.querySelectorAll('a');
+  mobileLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+    });
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href') || '');
+      if (target) {
+        const headerOffset = 80;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+</script>
+

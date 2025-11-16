@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://prizely.com.br/sitemap.xml
+

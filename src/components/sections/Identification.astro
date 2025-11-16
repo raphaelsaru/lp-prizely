@@ -1,0 +1,74 @@
+---
+import { TrendingDown, Target, BarChart3, Rocket, DollarSign, Handshake, Zap, Trophy } from 'lucide-react';
+
+const benefits = [
+  {
+    icon: TrendingDown,
+    title: 'Já investiu em marketing sem ver retorno real no faturamento'
+  },
+  {
+    icon: Target,
+    title: 'Quer uma agência que fale a língua do seu negócio e do seu mercado'
+  },
+  {
+    icon: BarChart3,
+    title: 'Precisa de transparência total: dados, métricas e resultados claros'
+  },
+  {
+    icon: Rocket,
+    title: 'Busca crescimento sustentável, não apenas "curtidas" e "visualizações"'
+  },
+  {
+    icon: DollarSign,
+    title: 'Quer maximizar ROI com estratégias personalizadas, não fórmulas prontas'
+  },
+  {
+    icon: Handshake,
+    title: 'Valoriza uma parceria estratégica, não apenas um prestador de serviço'
+  },
+  {
+    icon: Zap,
+    title: 'Precisa de agilidade: respostas rápidas e ajustes em tempo real'
+  },
+  {
+    icon: Trophy,
+    title: 'Está pronto para transformar seu negócio no prêmio que merece ser'
+  }
+];
+---
+
+<section class="section bg-slate-900">
+  <div class="container">
+    <!-- Header -->
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
+        Prizely é <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-accent-400">perfeita para você</span> que...
+      </h2>
+      <p class="text-xl text-slate-300">
+        Se você se identifica com pelo menos 3 desses pontos, a Prizely foi feita para o seu negócio.
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {benefits.map((benefit) => (
+        <div class="rounded-xl transition-all duration-300 bg-slate-800 border border-slate-700 hover:border-primary-500 hover:shadow-xl hover:-translate-y-1 p-6 group">
+          <div class="text-primary-400 mb-4 transform group-hover:scale-110 transition-transform">
+            <benefit.icon className="w-12 h-12" />
+          </div>
+          <p class="text-slate-200 leading-relaxed">
+            {benefit.title}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-12">
+      <p class="text-slate-300 text-lg">
+        Se identificou? Então vamos conversar!
+      </p>
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,110 @@
+---
+import Card from '../ui/Card.astro';
+import Badge from '../ui/Badge.astro';
+import Button from '../ui/Button.astro';
+
+const steps = [
+  {
+    letter: 'P',
+    title: 'Planejamento Estratégico',
+    description: 'Análise profunda do seu negócio, mercado e concorrência para criar uma estratégia personalizada.',
+    color: 'from-primary-500 to-primary-700'
+  },
+  {
+    letter: 'R',
+    title: 'Resultados Mensuráveis',
+    description: 'Definição de KPIs claros e dashboard em tempo real para acompanhar cada centavo investido.',
+    color: 'from-secondary-500 to-secondary-700'
+  },
+  {
+    letter: 'I',
+    title: 'Inovação Constante',
+    description: 'Testes A/B contínuos e otimizações semanais para manter suas campanhas sempre à frente.',
+    color: 'from-accent-500 to-accent-700'
+  },
+  {
+    letter: 'Z',
+    title: 'Zero Desperdício',
+    description: 'Cada real investido é monitorado e otimizado para maximizar seu retorno sobre investimento.',
+    color: 'from-primary-600 to-secondary-600'
+  },
+  {
+    letter: 'E',
+    title: 'Escalabilidade Garantida',
+    description: 'Estrutura preparada para crescer junto com seu negócio, sem perder qualidade ou controle.',
+    color: 'from-secondary-600 to-accent-600'
+  }
+];
+---
+
+<section class="section bg-white">
+  <div class="container">
+    <!-- Header -->
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <Badge variant="primary" size="lg" class="mb-4">
+        Nossa Metodologia
+      </Badge>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-6">
+        O Método <span class="gradient-text">P.R.I.Z.E.</span>
+      </h2>
+      <p class="text-xl text-slate-600">
+        Nossa metodologia proprietária que transforma investimento em marketing em crescimento real e sustentável.
+      </p>
+    </div>
+
+    <!-- Steps -->
+    <div class="space-y-8">
+      {steps.map((step, index) => (
+        <div class="relative">
+          <!-- Connector Line (except for last item) -->
+          {index < steps.length - 1 && (
+            <div class="hidden md:block absolute left-1/2 top-full w-0.5 h-8 bg-gradient-to-b from-slate-300 to-transparent transform -translate-x-1/2 z-0"></div>
+          )}
+          
+          <Card variant="hover" class="relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+              <!-- Letter Badge -->
+              <div class={`flex-shrink-0 w-24 h-24 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center transform transition-transform group-hover:scale-110`}>
+                <span class="text-5xl font-heading font-bold text-white">
+                  {step.letter}
+                </span>
+              </div>
+
+              <!-- Content -->
+              <div class="flex-1 text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start gap-3 mb-3">
+                  <h3 class="text-2xl md:text-3xl font-heading font-bold text-slate-900">
+                    {step.title}
+                  </h3>
+                  <Badge variant="neutral" size="sm">
+                    Etapa {index + 1}
+                  </Badge>
+                </div>
+                <p class="text-lg text-slate-600 leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
+            </div>
+          </Card>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="mt-16 text-center">
+      <div class="inline-block p-8 rounded-2xl bg-gradient-to-br from-slate-50 to-primary-50 border border-primary-100">
+        <h3 class="text-2xl font-heading font-bold text-slate-900 mb-3">
+          Pronto para aplicar o Método P.R.I.Z.E. no seu negócio?
+        </h3>
+        <p class="text-slate-600 mb-6 max-w-2xl">
+          Cada etapa é planejada para maximizar resultados e minimizar riscos.
+        </p>
+        <Button href="#contato" size="lg">
+          Comece agora
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>
+
+

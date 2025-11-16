@@ -1,0 +1,50 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  class?: string;
+  fullWidth?: boolean;
+}
+
+const { 
+  variant = 'primary', 
+  size = 'md', 
+  href,
+  type = 'button',
+  class: className = '',
+  fullWidth = false,
+} = Astro.props;
+
+const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+
+const variants = {
+  primary: 'bg-gradient-primary text-white hover:opacity-90 focus:ring-primary-500 shadow-lg hover:shadow-xl',
+  secondary: 'bg-slate-900 text-white hover:bg-slate-800 focus:ring-slate-500 shadow-md hover:shadow-lg',
+  outline: 'border-2 border-primary-700 text-primary-700 hover:bg-primary-50 focus:ring-primary-500',
+  ghost: 'text-slate-700 hover:bg-slate-100 focus:ring-slate-300',
+};
+
+const sizes = {
+  sm: 'px-4 py-2 text-sm',
+  md: 'px-6 py-3 text-base',
+  lg: 'px-8 py-4 text-lg',
+};
+
+const widthClass = fullWidth ? 'w-full' : '';
+
+const classes = `${baseStyles} ${variants[variant]} ${sizes[size]} ${widthClass} ${className}`;
+
+const Element = href ? 'a' : 'button';
+---
+
+<Element 
+  href={href}
+  type={!href ? type : undefined}
+  class={classes}
+>
+  <slot />
+</Element>
+
+

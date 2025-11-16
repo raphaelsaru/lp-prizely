@@ -1,0 +1,130 @@
+---
+import Card from '../ui/Card.astro';
+import Badge from '../ui/Badge.astro';
+import { User, Target, Gem, Rocket } from 'lucide-react';
+
+const team = [
+  {
+    name: 'Ana Silva',
+    role: 'CEO & Estrategista',
+    bio: 'Especialista em growth marketing com mais de 8 anos gerenciando campanhas de alto volume. Já ajudou mais de 100 empresas a escalar através de tráfego pago estratégico.',
+    experience: '8+ anos',
+    expertise: 'Meta Ads & Google Ads'
+  },
+  {
+    name: 'Carlos Mendes',
+    role: 'Head de Performance',
+    bio: 'Analista de dados apaixonado por otimização. Responsável por aumentar o ROI dos clientes em média 250% através de análise profunda e testes constantes.',
+    experience: '6+ anos',
+    expertise: 'Data Analytics & CRO'
+  },
+  {
+    name: 'Julia Costa',
+    role: 'Creative Director',
+    bio: 'Designer e videomaker com olhar estratégico. Cria criativos que não só chamam atenção, mas convertem. Mais de 5000 anúncios criados com performance comprovada.',
+    experience: '7+ anos',
+    expertise: 'Design & Video Marketing'
+  }
+];
+---
+
+<section id="sobre" class="section bg-white">
+  <div class="container">
+    <!-- Header -->
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <Badge variant="primary" size="lg" class="mb-4">
+        Nosso Time
+      </Badge>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-6">
+        Conheça quem vai <span class="gradient-text">impulsionar seu crescimento</span>
+      </h2>
+      <p class="text-xl text-slate-600">
+        Um time de especialistas apaixonados por resultados, dedicados a transformar seu negócio.
+      </p>
+    </div>
+
+    <!-- Team Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      {team.map((member) => (
+        <Card variant="hover" class="text-center">
+          <!-- Photo Placeholder -->
+          <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-primary flex items-center justify-center">
+            <User className="w-16 h-16 text-white" />
+          </div>
+
+          <!-- Name & Role -->
+          <h3 class="text-2xl font-heading font-bold text-slate-900 mb-2">
+            {member.name}
+          </h3>
+          <p class="text-primary-600 font-semibold mb-4">
+            {member.role}
+          </p>
+
+          <!-- Bio -->
+          <p class="text-slate-600 leading-relaxed mb-6">
+            {member.bio}
+          </p>
+
+          <!-- Stats -->
+          <div class="flex justify-center gap-4 pt-6 border-t border-slate-200">
+            <div>
+              <Badge variant="primary" size="sm">
+                {member.experience}
+              </Badge>
+            </div>
+            <div>
+              <Badge variant="secondary" size="sm">
+                {member.expertise}
+              </Badge>
+            </div>
+          </div>
+        </Card>
+      ))}
+    </div>
+
+    <!-- Values -->
+    <div class="max-w-4xl mx-auto">
+      <div class="rounded-2xl bg-gradient-to-br from-slate-50 to-primary-50 p-8 md:p-12">
+        <h3 class="text-2xl md:text-3xl font-heading font-bold text-slate-900 mb-8 text-center">
+          Nossos Valores
+        </h3>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="flex justify-center mb-3">
+              <Target className="w-12 h-12 text-primary-600" />
+            </div>
+            <h4 class="text-lg font-heading font-semibold text-slate-900 mb-2">
+              Resultados Acima de Tudo
+            </h4>
+            <p class="text-slate-600 text-sm">
+              Seu sucesso é nossa métrica principal. Cada decisão é baseada em dados e ROI.
+            </p>
+          </div>
+          <div class="text-center">
+            <div class="flex justify-center mb-3">
+              <Gem className="w-12 h-12 text-primary-600" />
+            </div>
+            <h4 class="text-lg font-heading font-semibold text-slate-900 mb-2">
+              Transparência Total
+            </h4>
+            <p class="text-slate-600 text-sm">
+              Sem segredos, sem surpresas. Você vê exatamente onde cada real está sendo investido.
+            </p>
+          </div>
+          <div class="text-center">
+            <div class="flex justify-center mb-3">
+              <Rocket className="w-12 h-12 text-primary-600" />
+            </div>
+            <h4 class="text-lg font-heading font-semibold text-slate-900 mb-2">
+              Inovação Constante
+            </h4>
+            <p class="text-slate-600 text-sm">
+              Sempre testando, aprendendo e implementando as estratégias mais avançadas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
