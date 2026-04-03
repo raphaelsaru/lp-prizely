@@ -1,0 +1,26 @@
+{
+  "name": "prizely-meta-ad",
+  "version": "1.0.0",
+  "description": "Prizely Meta Ads video",
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion render",
+    "render:9x16": "remotion render MetaAd-9x16 ../public/meta-ad-9x16.mp4 --codec=h264",
+    "render:3x4": "remotion render MetaAd-3x4 ../public/meta-ad-3x4.mp4 --codec=h264"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.443",
+    "@remotion/google-fonts": "^4.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "typescript": "^5.0.0"
+  },
+  "remotion": {
+    "entrypoint": "src/index.ts"
+  }
+}
