@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, Sequence } from "remotion";
+import { AbsoluteFill, Audio, Sequence, staticFile } from "remotion";
 import { Hook } from "./scenes/Hook";
 import { Problem } from "./scenes/Problem";
 import { Solution } from "./scenes/Solution";
@@ -9,6 +9,7 @@ import { CTA } from "./scenes/CTA";
 export const MetaAd: React.FC = () => {
   return (
     <AbsoluteFill style={{ backgroundColor: "#020617" }}>
+      <Audio src={staticFile("narration.mp3")} />
       <Sequence from={0} durationInFrames={240}>
         <Hook />
       </Sequence>
