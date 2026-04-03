@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import logoPrizely from '../assets/logo-prizely.png';
+---
+
+<BaseLayout
+  title="Obrigado — Prizely"
+  description="Recebemos seu contato. Em breve nossa equipe entrará em contato."
+>
+  <div class="min-h-screen bg-slate-950 flex flex-col items-center justify-center px-4 relative overflow-hidden">
+    <!-- Grid background -->
+    <div class="absolute inset-0" style="background-image: linear-gradient(rgba(99,102,241,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.07) 1px, transparent 1px); background-size: 60px 60px;"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-600 rounded-full opacity-5 blur-3xl"></div>
+
+    <div class="relative z-10 text-center max-w-lg w-full">
+      <!-- Logo -->
+      <a href="/" class="inline-block mb-12">
+        <Image src={logoPrizely} alt="Prizely" class="h-8 w-auto brightness-0 invert opacity-70 mx-auto" />
+      </a>
+
+      <!-- Checkmark -->
+      <div class="w-20 h-20 rounded-full bg-primary-500/20 border border-primary-500/40 flex items-center justify-center mx-auto mb-8">
+        <svg class="w-10 h-10 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
+        Recebemos seu contato!
+      </h1>
+
+      <p class="text-slate-400 text-lg leading-relaxed mb-10">
+        Obrigado por preencher o formulário. Nossa equipe analisará suas respostas e entrará em contato com você em até <strong class="text-white">24 horas</strong>.
+      </p>
+
+      <!-- What's next -->
+      <div class="text-left bg-slate-900/80 border border-slate-700/50 rounded-2xl p-6 mb-10">
+        <p class="text-sm font-mono text-primary-400 tracking-widest uppercase mb-4">Próximos passos</p>
+        <ol class="space-y-3">
+          {[
+            'Nossa equipe revisa suas respostas',
+            'Entramos em contato pelo WhatsApp ou e-mail',
+            'Agendamos uma conversa de diagnóstico',
+            'Você recebe um plano personalizado — sem custo',
+          ].map((step, i) => (
+            <li class="flex items-start gap-3 text-slate-300 text-sm">
+              <span class="w-5 h-5 rounded-full bg-primary-500/20 border border-primary-500/30 flex items-center justify-center flex-shrink-0 mt-0.5 text-xs text-primary-400 font-bold">
+                {i + 1}
+              </span>
+              {step}
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Voltar para o início
+      </a>
+    </div>
+  </div>
+</BaseLayout>

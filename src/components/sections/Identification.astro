@@ -1,38 +1,34 @@
 ---
-import { TrendingDown, Target, BarChart3, Rocket, DollarSign, Handshake, Zap, Trophy } from 'lucide-react';
-
-const benefits = [
+const pains = [
   {
-    icon: TrendingDown,
-    title: 'Já investiu em tráfego pago sem ver retorno real no faturamento'
+    emoji: '⏳',
+    title: 'Horas perdidas em tarefas repetitivas',
+    desc: 'Sua equipe gasta tempo precioso em atividades que a IA já faz em segundos.'
   },
   {
-    icon: Target,
-    title: 'Quer uma agência que entende de público alvo e mercado'
+    emoji: '💬',
+    title: 'Atendimento lento e sobrecarregado',
+    desc: 'Clientes esperando, equipe esgotada. A IA pode atender 24h sem perder qualidade.'
   },
   {
-    icon: BarChart3,
-    title: 'Precisa de transparência total: dados, métricas e resultados claros'
+    emoji: '📊',
+    title: 'Relatórios e análises feitos na mão',
+    desc: 'Dados espalhados, decisões lentas. A IA organiza e analisa em tempo real.'
   },
   {
-    icon: Rocket,
-    title: 'Busca crescimento sustentável, não apenas "curtidas" e "visualizações"'
+    emoji: '🧠',
+    title: 'Conhecimento só na cabeça dos sócios',
+    desc: 'Quando alguém sai, o conhecimento vai junto. A IA cria o segundo cérebro da empresa.'
   },
   {
-    icon: DollarSign,
-    title: 'Quer maximizar ROI com estratégias personalizadas, não fórmulas prontas'
+    emoji: '🤖',
+    title: 'Ferramentas de IA genéricas sem resultado',
+    desc: 'ChatGPT aberto no navegador não é estratégia. Você precisa de implementação real.'
   },
   {
-    icon: Handshake,
-    title: 'Valoriza uma parceria estratégica, não apenas um prestador de serviço'
-  },
-  {
-    icon: Zap,
-    title: 'Precisa de agilidade: respostas rápidas e ajustes em tempo real'
-  },
-  {
-    icon: Trophy,
-    title: 'Está pronto para escalar suas vendas com estratégias online'
+    emoji: '🔥',
+    title: 'Time sobrecarregado com o operacional',
+    desc: 'Seus melhores talentos presos no dia a dia. A IA libera para o que importa.'
   }
 ];
 ---
@@ -40,38 +36,37 @@ const benefits = [
 <section class="section bg-slate-900">
   <div class="container">
     <!-- Header -->
-    <div class="max-w-3xl mx-auto text-center mb-16">
+    <div class="max-w-2xl mx-auto text-center mb-16">
+      <p class="text-primary-400 text-sm font-mono tracking-widest uppercase mb-4">Por que agir agora</p>
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
-        A Prizely é <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-accent-400">perfeita para você</span> que...
+        Você reconhece algum desses <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-accent-400">problemas?</span>
       </h2>
-      <p class="text-xl text-slate-300">
-        Se identifica com pelo menos três desses pontos abaixo
+      <p class="text-slate-400 text-lg">
+        Se sim, sua empresa está deixando dinheiro na mesa. A IA já resolve isso — você só precisa de quem saiba implementar.
       </p>
     </div>
 
     <!-- Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {benefits.map((benefit) => (
-        <div class="rounded-xl transition-all duration-300 bg-slate-800 border border-slate-700 hover:border-primary-500 hover:shadow-xl hover:-translate-y-1 p-6 group">
-          <div class="text-primary-400 mb-4 transform group-hover:scale-110 transition-transform">
-            <benefit.icon className="w-12 h-12" />
-          </div>
-          <p class="text-slate-200 leading-relaxed">
-            {benefit.title}
-          </p>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+      {pains.map((pain) => (
+        <div class="group p-6 rounded-xl border border-slate-700/50 bg-slate-800/40 hover:border-primary-500/50 hover:bg-slate-800/70 transition-all duration-300 hover:-translate-y-1">
+          <div class="text-3xl mb-4">{pain.emoji}</div>
+          <h3 class="text-white font-semibold text-lg mb-2 leading-snug">{pain.title}</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">{pain.desc}</p>
         </div>
       ))}
     </div>
 
     <!-- CTA -->
-    <div class="text-center mt-12">
-      <p class="text-slate-300 text-lg mb-6">
-        Se identificou? Então vamos conversar!
-      </p>
-      <a href="#contato" class="inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 bg-white text-slate-900 hover:bg-slate-100 px-6 py-3 shadow-lg hover:shadow-xl">
-        Quero ser parceiro da Prizely
+    <div class="text-center">
+      <p class="text-slate-400 mb-5">Se identificou com 2 ou mais? Vamos conversar.</p>
+      <a
+        href="#contato"
+        class="inline-flex items-center gap-2 bg-white text-slate-900 font-semibold px-6 py-3 rounded-lg hover:bg-slate-100 transition-colors shadow-lg"
+      >
+        Quero meu diagnóstico gratuito
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
       </a>
     </div>
   </div>
 </section>
-
