@@ -1,12 +1,13 @@
 ---
-import LottieIcon from '../react/LottieIcon';
-import { ANIMATIONS } from '../../config/animations';
+import { SearchIcon } from '../icons/search-icon';
+import { CompassIcon } from '../icons/compass-icon';
+import { SettingsIcon } from '../icons/settings-icon';
+import { RocketIcon } from '../icons/rocket-icon';
 
 const services = [
   {
     step: '01',
-    anim: ANIMATIONS.diagnosis,
-    emoji: '🔍',
+    Icon: SearchIcon,
     title: 'Diagnóstico de IA',
     badge: 'Gratuito',
     badgeColor: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20',
@@ -15,8 +16,7 @@ const services = [
   },
   {
     step: '02',
-    anim: ANIMATIONS.strategy,
-    emoji: '🗺️',
+    Icon: CompassIcon,
     title: 'Consultoria Estratégica',
     badge: 'Popular',
     badgeColor: 'text-primary-400 bg-primary-400/10 border-primary-400/20',
@@ -25,8 +25,7 @@ const services = [
   },
   {
     step: '03',
-    anim: ANIMATIONS.implementation,
-    emoji: '⚙️',
+    Icon: SettingsIcon,
     title: 'Implementação',
     badge: 'Premium',
     badgeColor: 'text-accent-400 bg-accent-400/10 border-accent-400/20',
@@ -35,8 +34,7 @@ const services = [
   },
   {
     step: '04',
-    anim: ANIMATIONS.mentoring,
-    emoji: '🚀',
+    Icon: RocketIcon,
     title: 'Mentoria Contínua',
     badge: 'Recorrente',
     badgeColor: 'text-secondary-400 bg-secondary-400/10 border-secondary-400/20',
@@ -48,7 +46,6 @@ const services = [
 
 <section id="servicos" class="section bg-white">
   <div class="container">
-    <!-- Header -->
     <div class="max-w-2xl mx-auto text-center mb-16">
       <p class="text-primary-600 text-sm font-mono tracking-widest uppercase mb-4">Como funciona</p>
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-slate-900 mb-6">
@@ -59,39 +56,26 @@ const services = [
       </p>
     </div>
 
-    <!-- Services Grid -->
     <div class="grid md:grid-cols-2 gap-6">
-      {services.map((service) => (
-        <div class="group relative p-8 rounded-2xl border border-slate-200 bg-white hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <!-- Step number -->
+      {services.map(({ step, Icon, title, badge, badgeColor, description, features }) => (
+        <div class="group relative p-8 rounded-2xl border border-slate-200 bg-white hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-default">
           <div class="absolute top-8 right-8 text-6xl font-heading font-bold text-slate-100 group-hover:text-primary-100 transition-colors select-none leading-none">
-            {service.step}
+            {step}
           </div>
 
-          <!-- Badge -->
-          <span class={`inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full border mb-4 ${service.badgeColor}`}>
-            {service.badge}
+          <span class={`inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full border mb-4 ${badgeColor}`}>
+            {badge}
           </span>
 
-          <!-- Lottie icon -->
-          <div class="mb-4 w-16 h-16 relative z-10">
-            <LottieIcon
-              client:visible
-              src={service.anim}
-              fallback={service.emoji}
-              size={64}
-            />
+          <div class="mb-4 text-primary-600 relative z-10">
+            <Icon client:visible size={44} />
           </div>
 
-          <!-- Title -->
-          <h3 class="text-xl font-heading font-bold text-slate-900 mb-3 relative z-10">{service.title}</h3>
+          <h3 class="text-xl font-heading font-bold text-slate-900 mb-3 relative z-10">{title}</h3>
+          <p class="text-slate-500 leading-relaxed mb-6 relative z-10">{description}</p>
 
-          <!-- Description -->
-          <p class="text-slate-500 leading-relaxed mb-6 relative z-10">{service.description}</p>
-
-          <!-- Features -->
           <ul class="space-y-2 relative z-10">
-            {service.features.map((f) => (
+            {features.map((f) => (
               <li class="flex items-center gap-2 text-sm text-slate-600">
                 <svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
@@ -104,7 +88,6 @@ const services = [
       ))}
     </div>
 
-    <!-- CTA -->
     <div class="text-center mt-12">
       <p class="text-slate-500 mb-5">Comece pelo diagnóstico — é gratuito e sem compromisso.</p>
       <a
