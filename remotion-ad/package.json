@@ -6,7 +6,8 @@
     "dev": "remotion studio",
     "build": "remotion render",
     "render:9x16": "remotion render MetaAd-9x16 ../public/meta-ad-9x16.mp4 --codec=h264",
-    "render:3x4": "remotion render MetaAd-3x4 ../public/meta-ad-3x4.mp4 --codec=h264"
+    "render:3x4": "remotion render MetaAd-3x4 ../public/meta-ad-3x4.mp4 --codec=h264",
+    "render:carousel": "remotion still Carousel-Card1 ../public/carousel-card-1.png && remotion still Carousel-Card2 ../public/carousel-card-2.png && remotion still Carousel-Card3 ../public/carousel-card-3.png && remotion still Carousel-Card4 ../public/carousel-card-4.png && remotion still Carousel-Card5 ../public/carousel-card-5.png"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.443",
